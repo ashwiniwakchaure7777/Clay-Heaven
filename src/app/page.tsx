@@ -4,6 +4,8 @@ import WhatsTrending from "../components/WhatsTrending";
 import Poutry from "../components/Poutry";
 import WhatCustomerSay from "../components/WhatCustomerSay";
 import LandingVide from "../components/LandingVide";
+import BestSeller from "../components/BestSeller";
+import LearnPottery from "../components/LearnPottery";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
       <Poutry />
       <WhatCustomerSay />
       <LandingVide />
+      <BestSeller />
+      <LearnPottery />
     </main>
   );
 }

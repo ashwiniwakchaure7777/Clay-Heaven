@@ -6,7 +6,7 @@ import React, { useState } from "react";
 const Navbar = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   return (
-    <nav className="bg-[url(/product-item6.jpg)] h-20 w-full bg-cover flex justify-around text-lg items-center border-b border-white sticky left-0 top-0 z-10">
+    <nav className="bg-[url(/product-item6.jpg)] h-20 w-full bg-cover flex justify-around text-lg items-center border-b border-white sticky left-0 top-0 z-10 ">
       <div className="flex items-center space-x-6 ">
         <Link href={"/"} className="text-white hover:text-gray-300">
           Home
@@ -95,7 +95,7 @@ const Navbar = () => {
           className="object-contain"
         />
       </div>
-      <div className="flex items-center justify-between space-x-10">
+      <div className="flex items-end justify-between space-x-10">
         <Link
           href={"#"}
           className="flex items-center justify-between space-x-1"
