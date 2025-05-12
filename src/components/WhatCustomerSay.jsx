@@ -3,14 +3,20 @@ import Slider from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const NextArrow = ({ onclick }) => (
-  <button className="absolute top-1/2 transform -translate-y-1/2 left-[-60px] bg-white rounded-full shadow-md hover:bg-gray-200 z-20" onClick={onclick}>
+  <button
+    className="absolute top-1/2 transform -translate-y-1/2 left-[120px] bg-gray-100 p-5 rounded-full shadow-md hover:bg-gray-200 z-20"
+    onClick={onclick}
+  >
     <FaArrowLeft size={20} className="text-gray-700"></FaArrowLeft>
   </button>
 );
 
 const PrevArrow = ({ onclick }) => (
-  <button className="absolute top-1/2 transform -translate-y-1/2 right-[-60px] bg-white rounded-full shadow-md hover:bg-gray-200 z-20" onClick={onclick}>
-    <FaArrowLeft size={20} className="text-gray-700"></FaArrowLeft>
+  <button
+    className="absolute top-1/2 transform -translate-y-1/2 right-[120px] bg-gray-100 p-5 rounded-full shadow-md hover:bg-gray-200 z-20"
+    onClick={onclick}
+  >
+    <FaArrowRight size={20} className="text-gray-700"></FaArrowRight>
   </button>
 );
 const customerReviews = [
@@ -92,19 +98,23 @@ const WhatCustomerSay = () => {
     ],
   };
   return (
-    <div className="text-center py-30">
+    <div className="text-center pb-30 pt-10">
       <h1 className="text-5xl tracking-wide">What Our Customers Says</h1>
       <div>
         <Slider {...settings}>
           {customerReviews.map((item) => (
-            <div key={item?.id} className="px-60 mt-5 space-y-4">
-              <h2 className="text-3xl text-gray-400"><span>"</span>{item?.review}<span>"</span></h2>
+            <div key={item?.id} className="px-80 mt-5 space-y-4 ">
+              <h2 className="text-2xl text-gray-400">
+                <span>"</span>
+                {item?.review}
+                <span>"</span>
+              </h2>
               <div>
                 <p>
-                <span>Rating </span>
-                {item?.rating}
-              </p>
-              <p className="text-lg uppercase">{item?.customer}</p>
+                  <span>Rating </span>
+                  {item?.rating}
+                </p>
+                <p className="text-lg uppercase">{item?.customer}</p>
               </div>
             </div>
           ))}
