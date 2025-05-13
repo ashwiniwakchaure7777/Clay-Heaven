@@ -69,8 +69,8 @@ const LatestBlog = () => {
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 3000,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    // nextArrow: <NextArrow />,
+    // prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -87,15 +87,15 @@ const LatestBlog = () => {
     ],
   };
   return (
-    <div className="h-[calc(100vh-80px)] py-20px">
+    <div className=" my-30">
       <div className="text-center">
-        <h1 className="text-5xl tracking-wide">Latest Blog</h1>
+        <h1 className="text-5xl tracking-wide space-y-2">Latest Blog</h1>
         <p className="text-lg tracking-wider">
           {" "}
           Learn more about creamics and pottery
         </p>
       </div>
-      <div className="px-20">
+      <div className="px-60">
         <Slider {...settings}>
           {blogs.map((item) => (
             <div key={item?.id} className="p-5 h-100 overflow-hidden space-y-2">
@@ -113,7 +113,7 @@ const LatestBlog = () => {
           ))}
         </Slider>
       </div>
-      <div className="text-center mt-5">
+      <div className="text-center my-10">
         <Link
           href={"/#"}
           className="bg-black text-white px-12 py-2 text-center"

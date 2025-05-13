@@ -1,12 +1,31 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-[url(/product-item6.jpg)] h-20 w-full bg-cover flex justify-around text-lg items-center border-b border-white sticky left-0 top-0 z-10 ">
+    <nav
+      className={`h-20 w-full flex justify-around text-lg items-center border-b border-white sticky top-0 left-0 z-10 transition-all duration-300 ${
+        scrolled ? "bg-[#A9958B] border-none" : "bg-[url('/product-item6.jpg')] bg-cover"
+      }`}
+    >
       <div className="flex items-center space-x-6 ">
         <Link href={"/"} className="text-white hover:text-gray-300">
           Home

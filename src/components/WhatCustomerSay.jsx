@@ -4,7 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const NextArrow = ({ onclick }) => (
   <button
-    className="absolute top-1/2 transform -translate-y-1/2 left-[120px] bg-gray-100 p-5 rounded-full shadow-md hover:bg-gray-200 z-20"
+    className="absolute top-1/2 transform -translate-y-1/2 left-[180px] bg-gray-100 p-5 rounded-full shadow-md hover:bg-gray-200 z-20"
     onClick={onclick}
   >
     <FaArrowLeft size={20} className="text-gray-700"></FaArrowLeft>
@@ -13,7 +13,7 @@ const NextArrow = ({ onclick }) => (
 
 const PrevArrow = ({ onclick }) => (
   <button
-    className="absolute top-1/2 transform -translate-y-1/2 right-[120px] bg-gray-100 p-5 rounded-full shadow-md hover:bg-gray-200 z-20"
+    className="absolute top-1/2 transform -translate-y-1/2 right-[180px] bg-gray-100 p-5 rounded-full shadow-md hover:bg-gray-200 z-20"
     onClick={onclick}
   >
     <FaArrowRight size={20} className="text-gray-700"></FaArrowRight>
@@ -103,7 +103,7 @@ const WhatCustomerSay = () => {
       <div>
         <Slider {...settings}>
           {customerReviews.map((item) => (
-            <div key={item?.id} className="px-80 mt-5 space-y-4 ">
+            <div key={item?.id} className="px-100 mt-5 space-y-4 ">
               <h2 className="text-2xl text-gray-400">
                 <span>"</span>
                 {item?.review}

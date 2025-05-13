@@ -12,7 +12,7 @@ const LandingVide = () => {
     setShowVideo(false);
   };
   return (
-    <div className="bg-[url(/video-item.jpg)] h-[calc(100vh-80px)] bg-fixed bg-no-repeat bg-cover bg-center flex justify-center items-center relative">
+    <div className="bg-[url(/video-item.jpg)] h-[calc(100vh-80px)] bg-fixed bg-no-repeat bg-cover bg-center flex justify-center items-center relative ">
       {!showVideo && (
         <div className="p-5 rounded-full bg-gray-100 absolute ">
           <CiPlay1

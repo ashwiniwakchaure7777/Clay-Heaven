@@ -102,12 +102,13 @@ const WhatsTrending = () => {
   ];
 
   return (
-    <div className="bg-white text-black text-center py-12 h-[calc(100vh-80px)] pt-12">
-      <div className="space-y-2 mb-6 ">
-        <h1 className="text-3xl font-bold tracking-wide text-gray-800">
+    <div className="bg-white text-black text-center h-[calc(100vh-80px)] pt-12">
+      <div className="space-y-2 mb-6" >
+        <h1 className="text-5xl font-bold tracking-wide text-gray-800">
+
           What's Trending
         </h1>
-        <p className="text-black text-lg tracking-wide">
+        <p className="text-black text-2xl tracking-wider">
           These are the items that are trending recently.
         </p>
       </div>
