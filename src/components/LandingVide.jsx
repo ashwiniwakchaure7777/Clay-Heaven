@@ -4,36 +4,44 @@ import { CiPlay1 } from "react-icons/ci";
 
 const LandingVide = () => {
   const [showVideo, setShowVideo] = useState(false);
+
   const handleOnClick = () => {
     setShowVideo(true);
   };
 
-  const handleOverlayClick = () => {
-    setShowVideo(false);
+  const handleOverlayClick = (e) => {
+    // Prevent closing if user clicks inside the video
+    if (e.target.id === "video-overlay") {
+      setShowVideo(false);
+    }
   };
+
   return (
-    <div className="bg-[url(/video-item.jpg)] h-[calc(100vh-80px)] bg-fixed bg-no-repeat bg-cover bg-center flex justify-center items-center relative ">
+    <div className="bg-[url(/video-item.jpg)] h-[calc(100vh-80px)] bg-fixed bg-no-repeat bg-cover bg-center flex justify-center items-center relative px-4">
       {!showVideo && (
-        <div className="p-5 rounded-full bg-gray-100 absolute ">
-          <CiPlay1
-            className="text-black"
-            size={30}
-            onClick={() => handleOnClick()}
-          />
+        <div
+          className="p-5 rounded-full bg-white bg-opacity-80 shadow-md cursor-pointer hover:scale-110 transition"
+          role="button"
+          aria-label="Play video"
+          onClick={handleOnClick}
+        >
+          <CiPlay1 className="text-black" size={36} />
         </div>
       )}
+
       {showVideo && (
         <div
-          className="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50"
+          id="video-overlay"
+          className="absolute inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50"
           onClick={handleOverlayClick}
         >
-          <div className="w-1/3 h-1/2 border-2 border-white flex justify-center items-center">
+          <div className="w-full max-w-2xl aspect-video border-2 border-white shadow-lg rounded-md overflow-hidden">
             <video
-              src={"/video1.mp4"}
+              src="/video1.mp4"
               controls
               autoPlay
               className="w-full h-full object-cover"
-            ></video>
+            />
           </div>
         </div>
       )}

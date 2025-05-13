@@ -4,121 +4,91 @@ import { GrSend } from "react-icons/gr";
 
 const Footer = () => {
   return (
-    <div className="w-full">
-      <div className="container mx-auto my-20 px-4">
-        <div className="flex flex-col justify-between md:flex-row my-auto gap-12 ">
-          <div className="md:w-1/4 px-4 mr-5 space-y-2">
-            <h1 className="text-3xl tracking-wide text-orange-800">
+    <div className="w-full bg-white">
+      <div className="container mx-auto my-12 sm:my-16 px-4 sm:px-6">
+        <div className="flex flex-col md:flex-row gap-8 sm:gap-12">
+          <div className="w-full md:w-1/4 px-4 space-y-4">
+            <h1 className="text-2xl sm:text-3xl tracking-wide text-orange-800 font-semibold">
               Know Our ClayHeaven
             </h1>
-            <p className="text-wrap tracking-wider text-lg">
-              We are the best ceramic supplier in the town. Our main motive is
-              to makr beautiful ceramics everytime
+            <p className="text-sm sm:text-base tracking-wide text-gray-600">
+              We are the best ceramic supplier in town. Our main motive is to make beautiful ceramics every time.
             </p>
-            <div className=" flex justify-start items-center">
+            <div className="flex items-center space-x-2">
               <input
-                type="text"
-                placeholder="You Email Address"
-                className="border-b border-gray-500 p-1 w-auto"
-              ></input>
-              <GrSend size={20} className="" />
+                type="email"
+                placeholder="Your Email Address"
+                className="w-full border-b border-gray-400 p-2 text-sm sm:text-base focus:outline-none focus:border-orange-800"
+                aria-label="Email subscription"
+              />
+              <button
+                className="text-orange-800 hover:text-orange-600"
+                aria-label="Subscribe"
+              >
+                <GrSend size={20} />
+              </button>
             </div>
           </div>
 
-          <div className="md:w-1/4 space-y-2 px-4">
-            <h2 className="text-2xl">Quick Links</h2>
-            <ul className="space-y-1">
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Blogs
-                </Link>
-              </li>
+          <div className="w-full md:w-1/4 px-4 space-y-4">
+            <h2 className="text-xl sm:text-2xl text-orange-800 font-medium">Quick Links</h2>
+            <ul className="space-y-2">
+              {["Home", "About", "Shop", "Blogs"].map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`/${item.toLowerCase()}`}
+                    className="text-sm sm:text-base text-orange-900 hover:text-orange-600"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-          <div className="md:w-1/4 space-y-2 px-4">
-            <h2 className="text-2xl">Help</h2>
-            <ul className="space-y-1">
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Faqs
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Store Policy
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Shipping & returns
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Checkout
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Contact
-                </Link>
-              </li>
+
+          <div className="w-full md:w-1/4 px-4 space-y-4">
+            <h2 className="text-xl sm:text-2xl text-orange-800 font-medium">Help</h2>
+            <ul className="space-y-2">
+              {["Faqs", "Store Policy", "Shipping & Returns", "Checkout", "Contact"].map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
+                    className="text-sm sm:text-base text-orange-900 hover:text-orange-600"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-          <div className="md:w-1/4 space-y-2 px-4">
-            <h2 className="text-2xl">Social Links</h2>
-            <ul className="space-y-1">
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Facebook
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Instagram
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Pinterest
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Twitter
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-orange-900 text-lg">
-                  Youtube
-                </Link>
-              </li>
+
+          <div className="w-full md:w-1/4 px-4 space-y-4">
+            <h2 className="text-xl sm:text-2xl text-orange-800 font-medium">Social Links</h2>
+            <ul className="space-y-2">
+              {["Facebook", "Instagram", "Pinterest", "Twitter", "Youtube"].map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`https://${item.toLowerCase()}.com`}
+                    className="text-sm sm:text-base text-orange-900 hover:text-orange-600"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
-      <div className="px-60 text-start border-t h-20 border border-gray-200 flex justify-between items-center text-gray-500">
-        <p className="text-xl text-black">
+
+      <div className="border-t border-gray-200 h-16 sm:h-20 flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 text-gray-500">
+        <p className="text-sm sm:text-base text-black">
           ©2025 Template by: <span className="text-orange-800">Ashwini</span>
         </p>
         <Link
           href="#top"
-          className="flex items-center text-xl text-gray-500 hover:text-gray-800"
+          className="flex items-center text-sm sm:text-base text-gray-500 hover:text-orange-800 py-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

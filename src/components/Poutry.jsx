@@ -1,39 +1,49 @@
 "use client";
-
 import Image from "next/image";
 
-const Poutry = () => {
+const Pottery = () => {
   return (
-    <div className="w-full h-[calc(100vh-80px)] space-x-4 flex justify-center items-center px-2 overflow-hidden">
-      <div className="flex-1 flex justify-center items-center ">
-        <Image
-          src={"/collection-item1.jpg"}
-          alt="collection-1"
-          width={800}
-          height={500}
-          className="h-auto w-full object-cover "
-        ></Image>
+    <section className="w-full my-20 px-4 flex flex-col lg:flex-row gap-6 lg:gap-4 items-center justify-center">
+      {/* Image 1 */}
+      <div className="w-full lg:w-1/3 max-w-md flex justify-center items-center">
+        <div className="relative w-full aspect-[4/3] lg:aspect-auto">
+          <Image
+            src="/collection-item1.jpg"
+            alt="collection-1"
+            fill
+            className="object-cover rounded-md shadow-md"
+            sizes="(max-width: 1024px) 100vw, 33vw"
+          />
+        </div>
       </div>
-      <div className="flex-1 flex justify-center items-center ">
-        <Image
-          src={"/collection-item2.jpg"}
-          alt="collection-2"
-          width={800}
-          height={500}
-          className="h-auto w-full object-cover "
-        ></Image>
+
+      {/* Image 2 */}
+      <div className="w-full lg:w-1/3 max-w-md flex justify-center items-center">
+        <div className="relative w-full aspect-[4/3] lg:aspect-auto">
+          <Image
+            src="/collection-item2.jpg"
+            alt="collection-2"
+            fill
+            className="object-cover rounded-md shadow-md"
+            sizes="(max-width: 1024px) 100vw, 33vw"
+          />
+        </div>
       </div>
-      <div className="flex-1 flex justify-center items-center ">
-        <Image
-          src={"/collection-item3.jpg"}
-          alt="collection-3"
-          width={800}
-          height={500}
-          className="h-auto w-full object-cover "
-        ></Image>
+
+      {/* Image 3 */}
+      <div className="w-full lg:w-1/3 max-w-md flex justify-center items-center">
+        <div className="relative w-full aspect-[4/3] lg:aspect-auto">
+          <Image
+            src="/collection-item3.jpg"
+            alt="collection-3"
+            fill
+            className="object-cover rounded-md shadow-md"
+            sizes="(max-width: 1024px) 100vw, 33vw"
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Poutry;
+export default Pottery;

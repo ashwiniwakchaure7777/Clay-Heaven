@@ -1,40 +1,32 @@
 "use client";
-import { PiVan } from "react-icons/pi";
+import { PiVan, PiTrolleySuitcase } from "react-icons/pi";
 import { BsCupHot } from "react-icons/bs";
-import { PiTrolleySuitcase } from "react-icons/pi";
 
 const Delivery = () => {
   return (
-    <div className="py-10 px-60 text-center flex items-center justify-center space-x-5">
-      <div className="border-y w-full h-40 border-gray-400 py-8 text-center px-2 flex flex-col justify-center items-center space-y-2">
-        <div>
-          <PiVan size={40} className="text-orange-800" />
-        </div>
-        <div>
-          <p className="text-2xl tracking-wide">
-            Inside City delivery within 3 days
-          </p>
-        </div>
+    <div className="py-10 px-4 sm:px-10 lg:px-20 flex flex-col md:flex-row items-center justify-center gap-6 text-center">
+      {/* Delivery Box */}
+      <div className="w-full md:w-1/3 border-y md:border-y-0 md:border-l border-gray-400 py-6 px-4 flex flex-col items-center space-y-2">
+        <PiVan size={36} className="text-orange-800" />
+        <p className="text-sm sm:text-base md:text-lg font-medium tracking-wide">
+          Inside City delivery within 3 days
+        </p>
       </div>
-      <div className="border-y w-full h-40 border-gray-400 py-8 text-center px-2 flex flex-col justify-center items-center space-y-4">
-        <div>
-          <BsCupHot size={40} className="text-orange-800" />
-        </div>
-        <div>
-          <p className="text-2xl tracking-wide">
-            Free Samples with Every Order
-          </p>
-        </div>
+
+      {/* Free Samples Box */}
+      <div className="w-full md:w-1/3 border-y md:border-y-0 md:border-l border-gray-400 py-6 px-4 flex flex-col items-center space-y-2">
+        <BsCupHot size={36} className="text-orange-800" />
+        <p className="text-sm sm:text-base md:text-lg font-medium tracking-wide">
+          Free Samples with Every Order
+        </p>
       </div>
-      <div className="border-y w-full h-40 border-gray-400 py-8 text-center px-2 flex flex-col justify-center items-center space-y-4">
-        <div>
-          <PiTrolleySuitcase size={40} className="text-orange-800" />
-        </div>
-        <div>
-          <p className="text-2xl tracking-wide">
-            Free Shipping on Orders Above $600
-          </p>
-        </div>
+
+      {/* Free Shipping Box */}
+      <div className="w-full md:w-1/3 border-y md:border-y-0 md:border-l border-gray-400 py-6 px-4 flex flex-col items-center space-y-2">
+        <PiTrolleySuitcase size={36} className="text-orange-800" />
+        <p className="text-sm sm:text-base md:text-lg font-medium tracking-wide">
+          Free Shipping on Orders Above $600
+        </p>
       </div>
     </div>
   );

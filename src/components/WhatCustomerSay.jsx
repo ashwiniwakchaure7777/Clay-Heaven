@@ -2,71 +2,74 @@
 import Slider from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const NextArrow = ({ onclick }) => (
+const PrevArrow = ({ onClick }) => (
   <button
-    className="absolute top-1/2 transform -translate-y-1/2 left-[180px] bg-gray-100 p-5 rounded-full shadow-md hover:bg-gray-200 z-20"
-    onClick={onclick}
+    className="hidden md:flex absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md hover:bg-gray-200 z-20 transition"
+    onClick={onClick}
+    aria-label="Previous Review"
   >
-    <FaArrowLeft size={20} className="text-gray-700"></FaArrowLeft>
+    <FaArrowLeft size={20} className="text-gray-700" />
   </button>
 );
 
-const PrevArrow = ({ onclick }) => (
+const NextArrow = ({ onClick }) => (
   <button
-    className="absolute top-1/2 transform -translate-y-1/2 right-[180px] bg-gray-100 p-5 rounded-full shadow-md hover:bg-gray-200 z-20"
-    onClick={onclick}
+    className="hidden md:flex absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md hover:bg-gray-200 z-20 transition"
+    onClick={onClick}
+    aria-label="Next Review"
   >
-    <FaArrowRight size={20} className="text-gray-700"></FaArrowRight>
+    <FaArrowRight size={20} className="text-gray-700" />
   </button>
 );
+
 const customerReviews = [
   {
     id: 1,
     customer: "John Doe",
     review:
-      "I've tried many similar products before, but this one truly stands out. The quality is outstanding, and the craftsmanship is top-notch. I was initially skeptical, but the product exceeded my expectations. It arrived in secure packaging, and the customer support was quick to respond to my queries. Highly recommended for anyone looking for quality and reliability.",
+      "I've tried many similar products before, but this one truly stands out. The quality is outstanding, and the craftsmanship is top-notch...",
     rating: 5,
   },
   {
     id: 2,
     customer: "Emily Smith",
     review:
-      "A decent product for the price. The material feels good, and the design is sleek. However, the packaging could have been better, as it arrived slightly dented. Despite that, the product itself works perfectly, and the features are as advertised. If you are on a budget but want something reliable, this is a good choice.",
+      "A decent product for the price. The material feels good, and the design is sleek...",
     rating: 4,
   },
   {
     id: 3,
     customer: "Michael Johnson",
     review:
-      "Unfortunately, my experience was not great. The product did not match the description on the website. It felt cheap and broke within a week of use. I reached out to customer support, but they were slow to respond. I would not recommend this product based on my experience.",
+      "Unfortunately, my experience was not great. The product did not match the description...",
     rating: 2,
   },
   {
     id: 4,
     customer: "Sarah Brown",
     review:
-      "Absolutely love this product! From the premium feel to the flawless performance, everything is perfect. I use it daily, and it has made my life so much easier. The instructions were clear, the packaging was elegant, and the customer support was very helpful. I have already recommended this to my friends and family.",
+      "Absolutely love this product! From the premium feel to the flawless performance, everything is perfect...",
     rating: 5,
   },
   {
     id: 5,
     customer: "David Wilson",
     review:
-      "The product is good, but the shipping took longer than expected. The quality is decent, and it serves its purpose well. I believe the company can work on faster delivery. Other than that, I am satisfied with my purchase.",
+      "The product is good, but the shipping took longer than expected. The quality is decent...",
     rating: 3,
   },
   {
     id: 6,
     customer: "Olivia Martinez",
     review:
-      "Wow! This is by far the best product I have bought in a while. The performance is exceptional, and the design is so stylish. I have been using it for over a month now, and it works perfectly without any issues. It is worth every penny, and I will definitely purchase again in the future.",
+      "Wow! This is by far the best product I have bought in a while. The performance is exceptional...",
     rating: 5,
   },
   {
     id: 7,
     customer: "James Lee",
     review:
-      "I had high hopes for this product, but it fell short of my expectations. The build quality is okay, but the performance is inconsistent. Sometimes it works perfectly, and other times it struggles. For the price, I expected better. I hope the company can improve the product in the future.",
+      "I had high hopes for this product, but it fell short of my expectations...",
     rating: 3,
   },
 ];
@@ -78,49 +81,49 @@ const WhatCustomerSay = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 3000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
+        settings: { slidesToShow: 1 },
       },
       {
         breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
+        settings: { slidesToShow: 1 },
       },
     ],
   };
+
   return (
-    <div className="text-center pb-30 pt-10">
-      <h1 className="text-5xl tracking-wide">What Our Customers Says</h1>
-      <div>
+    <section className="text-center py-16 px-4 sm:px-6 md:px-10 bg-gray-50">
+      <h1 className="text-3xl sm:text-5xl font-bold tracking-wide mb-8">
+        What Our Customers Say
+      </h1>
+
+      <div className="max-w-screen-md mx-auto relative">
         <Slider {...settings}>
           {customerReviews.map((item) => (
-            <div key={item?.id} className="px-100 mt-5 space-y-4 ">
-              <h2 className="text-2xl text-gray-400">
-                <span>"</span>
-                {item?.review}
-                <span>"</span>
-              </h2>
-              <div>
-                <p>
-                  <span>Rating </span>
-                  {item?.rating}
+            <div
+              key={item.id}
+              className="px-4 sm:px-6 py-8 bg-white rounded-lg shadow-md space-y-4 hover:shadow-lg transition"
+            >
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 italic leading-relaxed">
+                “{item.review}”
+              </p>
+              <div className="pt-4 border-t border-gray-200">
+                <p className="text-yellow-500 font-semibold">
+                  Rating: {item.rating} ★
                 </p>
-                <p className="text-lg uppercase">{item?.customer}</p>
+                <p className="text-xs sm:text-sm md:text-lg font-bold uppercase text-gray-800">
+                  {item.customer}
+                </p>
               </div>
             </div>
           ))}
         </Slider>
       </div>
-    </div>
+    </section>
   );
 };
 

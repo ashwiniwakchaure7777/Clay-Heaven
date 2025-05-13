@@ -1,24 +1,27 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import Slider from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const PrevArrow = ({ onClick }) => (
   <button
-    className="absolute bg-gray-100 rounded-full top-1/2 transform -translate-y-1/2 left-[00px] p-3 z-10"
+    className="hidden sm:flex absolute bg-gray-100 rounded-full top-1/2 transform -translate-y-1/2 left-1 sm:left-3 p-3 z-10 hover:bg-gray-200 transition"
     onClick={onClick}
   >
-    <FaArrowLeft size={20} className="text-gray-700" />
+    <FaArrowLeft size={18} className="text-gray-700" />
   </button>
 );
+
 const NextArrow = ({ onClick }) => (
   <button
-    className="absolute bg-gray-100 rounded-full top-1/2 transform -translate-y-1/2 right-[00px] p-3 z-10"
+    className="hidden sm:flex absolute bg-gray-100 rounded-full top-1/2 transform -translate-y-1/2 right-1 sm:right-3 p-3 z-10 hover:bg-gray-200 transition"
     onClick={onClick}
   >
-    <FaArrowRight size={20} className="text-gray-700" />
+    <FaArrowRight size={18} className="text-gray-700" />
   </button>
 );
+
 const bestSeller = [
   {
     id: 1,
@@ -63,6 +66,7 @@ const bestSeller = [
     image: "/product-item7.jpg",
   },
 ];
+
 const BestSeller = () => {
   const settings = {
     dots: false,
@@ -71,53 +75,73 @@ const BestSeller = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: false,
-    autoplaySpeed: 3000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
+        breakpoint: 1280,
+        settings: { slidesToShow: 3 },
+      },
+      {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
+        settings: { slidesToShow: 2 },
       },
       {
         breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
+        settings: { slidesToShow: 1 },
       },
     ],
   };
 
   return (
-    <div className="text-center space-y-5 my-30 px-40">
-      <div className="text-center">
-        <h1 className="text-5xl tracking-wide">Best Sellers</h1>
-        <p className="3xl tracking-wider">
-          These are the items that are best seller
+    <section className="text-center space-y-10 py-16 px-4 sm:px-6 lg:px-20">
+      {/* Heading */}
+      <div>
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-wide">
+          Best Sellers
+        </h1>
+        <p className="text-sm sm:text-base md:text-lg text-gray-600 mt-2">
+          These are the items that are best sellers
         </p>
       </div>
-      <div className="px-20 ">
+
+      {/* Slider */}
+      <div className="relative">
         <Slider {...settings}>
           {bestSeller.map((item) => (
             <div
-              key={item?.id}
-              className="flex items-center justify-between p-6 h-100 "
+              key={item.id}
+              className="flex flex-col items-center px-2 sm:px-4 py-4 sm:py-6 space-y-4 hover:shadow-md rounded-md transition"
             >
-              <img src={item?.image} className="h-80 w-full object-cover"></img>
-              <p className="text-xl tracking-wide">{item?.title}</p>
-              <p className="text-[#A9958B] text-xl">{item?.price}</p>
+              <div className="relative w-full aspect-[4/5] rounded-md overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-sm sm:text-base md:text-lg font-medium text-gray-800">
+                {item.title}
+              </p>
+              <p className="text-[#A9958B] text-sm sm:text-base font-semibold">
+                {item.price}
+              </p>
             </div>
           ))}
         </Slider>
       </div>
-      <div className="">
-        <Link href={"/#"} className="bg-black text-white px-8 py-2">
+
+      {/* Shop All Button */}
+      <div>
+        <Link
+          href="/#"
+          className="inline-block bg-black text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base rounded-md hover:bg-gray-800 transition"
+        >
           Shop All
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 
