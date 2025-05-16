@@ -96,7 +96,7 @@ const WhatCustomerSay = () => {
   };
 
   return (
-    <section className="text-center py-16 px-4 sm:px-6 md:px-10 bg-gray-50">
+    <section className="text-center py-16 px-4 sm:px-6 md:px-10 bg-gray-50 border">
       <h1 className="text-3xl sm:text-5xl font-bold tracking-wide mb-8">
         What Our Customers Say
       </h1>

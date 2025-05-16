@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`h-16 sm:h-20 w-full sticky top-0 left-0 z-50 flex items-center justify-between px-4 sm:px-8 transition-all duration-300 ${
+      className={`h-16 sm:h-20 w-full sticky top-0 left-0 z-50 flex items-center justify-around px-4 sm:px-8 transition-all duration-300 ${
         scrolled
           ? "bg-[#A9958B] border-none"
           : "bg-[url('/product-item6.jpg')] bg-cover border-b border-white"
@@ -72,6 +72,15 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
+                  href="/shop"
+                  className="block py-2 hover:text-[#A9958B]"
+                  onClick={() => setDrawerOpen(false)}
+                >
+                  Shop
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/about"
                   className="block py-2 hover:text-[#A9958B]"
                   onClick={() => setDrawerOpen(false)}
@@ -114,28 +123,28 @@ const Navbar = () => {
       </div>
 
       {/* Main Links (Desktop Only) */}
-      <ul className="hidden md:flex items-center space-x-4 lg:space-x-6 text-white z-10 text-sm lg:text-base">
+      <ul className="hidden md:flex items-center space-x-4 lg:space-x-6 text-white z-10 text-2xl lg:text-base">
         <li>
-          <Link href="/" className="hover:underline">
+          <Link href="/" className="hover:underline text-lg">
             Home
           </Link>
         </li>
         <li>
-          <Link href="/about" className="hover:underline">
+          <Link href="/about" className="hover:underline text-lg">
             About
           </Link>
         </li>
         <li>
-          <Link href="/shop" className="hover:underline">
+          <Link href="/shop" className="hover:underline text-lg">
             Shop
           </Link>
         </li>
         <li>
-          <Link href="/#" className="font-bold underline">
+          <Link href="/#" className="font-bold underline text-lg">
             Get Pro
           </Link>
         </li>
-        <li className="relative">
+        <li className="relative text-lg">
           <button
             className="flex items-center hover:underline"
             onClick={() => setIsDropDownOpen(!isDropDownOpen)}
@@ -145,7 +154,15 @@ const Navbar = () => {
           </button>
           {isDropDownOpen && (
             <div className="absolute top-full left-0 mt-2 w-48 bg-white text-gray-800 rounded-md shadow-lg z-20">
-              {["About", "Blog", "Shop", "Checkout", "Single Post", "Single Product", "Contact"].map((page, i) => (
+              {[
+                "About",
+                "Blog",
+                "Shop",
+                "Checkout",
+                "Single Post",
+                "Single Product",
+                "Contact",
+              ].map((page, i) => (
                 <Link
                   key={i}
                   href={`/${page.toLowerCase().replace(/ /g, "-")}`}
@@ -162,7 +179,10 @@ const Navbar = () => {
 
       {/* Icons (Login, Cart, Search) */}
       <div className="flex items-center space-x-3 sm:space-x-6 text-white z-10">
-        <Link href="/login" className="flex items-center space-x-1 text-sm sm:text-base">
+        <Link
+          href="/login"
+          className="flex items-center space-x-1 text-sm sm:text-base"
+        >
           <svg
             className="w-5 h-5 sm:w-6 sm:h-6"
             fill="none"
@@ -176,7 +196,7 @@ const Navbar = () => {
               d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
             />
           </svg>
-          <span className="hidden sm:inline">Login</span>
+          <span className="hidden sm:inline text-xl">Login</span>
         </Link>
 
         <Link href="/cart" className="relative flex items-center">

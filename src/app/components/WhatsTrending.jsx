@@ -29,43 +29,43 @@ const trendingItems = [
     id: 1,
     title: "Women's Floral Summer Dress",
     price: "$29.99",
-    image: "https://pebblely.com/categories/jewelry/ring-silk.jpg?width=720&quality=75",
+    image: "/insta-item1.jpg",
   },
   {
     id: 2,
     title: "Wireless Noise-Canceling Headphones",
     price: "$199.99",
-    image: "https://pebblely.com/categories/jewelry/ring-silk.jpg?width=720&quality=75",
+    image: "/insta-item2.jpg",
   },
   {
     id: 3,
     title: "Modern Ceramic Vase",
     price: "$45.00",
-    image: "https://pebblely.com/categories/jewelry/ring-silk.jpg?width=720&quality=75",
+    image: "/insta-item3.jpg",
   },
   {
     id: 4,
     title: "Smart Fitness Watch",
     price: "$79.99",
-    image: "https://pebblely.com/categories/jewelry/ring-silk.jpg?width=720&quality=75",
+    image: "/insta-item4.jpg",
   },
   {
     id: 5,
     title: "Minimalist Leather Wallet",
     price: "$19.99",
-    image: "https://pebblely.com/categories/jewelry/ring-silk.jpg?width=720&quality=75",
+    image: "/insta-item5.jpg",
   },
   {
     id: 6,
     title: "Eco-Friendly Bamboo Cutlery Set",
     price: "$14.99",
-    image: "https://pebblely.com/categories/jewelry/ring-silk.jpg?width=720&quality=75",
+    image: "/insta-item6.jpg",
   },
   {
     id: 7,
     title: "Portable Bluetooth Speaker",
     price: "$49.99",
-    image: "https://pebblely.com/categories/jewelry/ring-silk.jpg?width=720&quality=75",
+    image: "/insta-item4.jpg",
   },
 ];
 
@@ -95,7 +95,7 @@ const WhatsTrending = () => {
   };
 
   return (
-    <section className="bg-white text-black text-center py-16 px-4">
+    <section className="bg-white text-black text-center py-16 border px-4">
       <div className="mb-10 space-y-3">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800">
           What's Trending
@@ -109,7 +109,7 @@ const WhatsTrending = () => {
         <Slider {...settings}>
           {trendingItems.map((item) => (
             <div key={item.id} className="p-4">
-              <div className="bg-gray-100 rounded-md p-4 h-full shadow-md hover:shadow-lg transition flex flex-col items-center">
+              <div className="bg-gray-100 rounded-md p-4 h-80 shadow-md hover:shadow-lg transition flex flex-col items-center">
                 <div className="w-full aspect-[4/3] rounded-md overflow-hidden mb-4">
                   <img
                     src={item.image}
